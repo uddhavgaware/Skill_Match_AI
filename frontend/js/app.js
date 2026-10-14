@@ -4,10 +4,22 @@
  * interactive recommendations, live job applications, and recruiter talent workflows.
  */
 
-// Dynamic API Base URL: auto-detects if opened as file:/// vs http://localhost:8000
-const API_BASE = (window.location.protocol === "file:" || !window.location.origin || window.location.origin === "null")
-  ? "http://localhost:8000"
-  : "";
+// Dynamic API Base URL configuration:
+// Supports window.BACKEND_API_URL (from index.html/config) or localStorage override
+const getApiBase = () => {
+  if (window.BACKEND_API_URL && window.BACKEND_API_URL.trim() && !window.BACKEND_API_URL.includes("YOUR-BACKEND-NAME")) {
+    return window.BACKEND_API_URL.replace(/\/+$/, "");
+  }
+  const custom = localStorage.getItem("skillmatch_backend_url");
+  if (custom && custom.trim()) {
+    return custom.replace(/\/+$/, "");
+  }
+  if (window.location.protocol === "file:" || !window.location.origin || window.location.origin === "null") {
+    return "http://localhost:8000";
+  }
+  return "";
+};
+const API_BASE = getApiBase();
 
 // Initial candidate profile helper
 function getInitialProfile() {
