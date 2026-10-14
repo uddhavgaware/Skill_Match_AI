@@ -1,0 +1,31 @@
+MAYA PATEL
+Palo Alto, CA | (650) 555-0298 | maya.patel@stanford.edu
+github.com/mayapatel-dev | linkedin.com/in/mayapatel-dev | mayapatel.tech
+
+EDUCATION
+Stanford University
+Bachelor of Science in Computer Science (Systems & Human-Computer Interaction)
+GPA: 3.85 / 4.0 | Expected Graduation: June 2026
+Coursework: Web Applications, Operating Systems, Computer Networks, Database Systems, Object-Oriented Systems Design
+
+TECHNICAL SKILLS
+Languages: TypeScript, JavaScript, Python, SQL, HTML, CSS
+Frontend: React, Next.js, Tailwind CSS, Redux, Responsive Web Design
+Backend & Cloud: Node.js, Express.js, PostgreSQL, REST APIs, GraphQL, Prisma, Docker, Git, AWS
+
+EXPERIENCE
+FinFlow (YC W24) — Fullstack Engineering Intern
+June 2025 - September 2025 | San Francisco, CA
+• Developed customer dashboard using Next.js 14 App Router, TypeScript, and Tailwind CSS serving 15,000+ active users.
+• Architected PostgreSQL schema and Prisma ORM migrations with optimistic UI updates and server actions.
+• Implemented webhook processing microservice handling over 100,000 financial transaction events daily.
+
+PROJECTS
+CampusCart: Student Peer-to-Peer Marketplace (React, Node.js, PostgreSQL, Docker)
+• Designed and shipped a campus buy-and-sell portal with verified university SSO and real-time chat via WebSockets.
+• Engineered full-text product search indexing and automated image thumbnail generation using Docker workers.
+• Scaled to 4,500 active verified student accounts across 3 universities.
+
+DevPulse: Open Source API Status Monitor (TypeScript, React, Tailwind CSS, REST APIs)
+• Built an interactive uptime monitoring dashboard tracking response latency and SSL expiration.
+• Implemented automated email alerts and Slack webhook notification integrations.

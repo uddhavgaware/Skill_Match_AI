@@ -1,0 +1,602 @@
+[
+  {
+    "id": "int-01",
+    "title": "Machine Learning Research Intern",
+    "company": "Anthropic AI",
+    "domain": "AI & Machine Learning",
+    "location": "San Francisco, CA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks (Summer 2026)",
+    "stipend": "$58/hr ($9,280/mo)",
+    "level": "Undergrad / Masters",
+    "company_initials": "AN",
+    "company_color": "#D97706",
+    "description": "Join our interpretability and alignment research team to investigate transformer internal representations and train scalable RLHF reward models.",
+    "required_skills": ["Python", "PyTorch", "Transformers", "Machine Learning", "Deep Learning"],
+    "preferred_skills": ["Reinforcement Learning", "Weights & Biases", "Large Language Models", "Git", "Linear Algebra"],
+    "responsibilities": [
+      "Implement novel attention probing techniques on frontier transformer models",
+      "Benchmark model safety and constitutional AI feedback mechanisms",
+      "Collaborate with research scientists on peer-reviewed submissions"
+    ],
+    "learning_outcomes": [
+      "Hands-on experience with cutting-edge LLM alignment and safety research",
+      "Distributed GPU training workflows at scale"
+    ]
+  },
+  {
+    "id": "int-02",
+    "title": "Fullstack Software Engineering Intern",
+    "company": "Stripe",
+    "domain": "Fullstack Development",
+    "location": "Seattle, WA",
+    "work_type": "Remote",
+    "duration": "14 Weeks (Summer 2026)",
+    "stipend": "$54/hr ($8,640/mo)",
+    "level": "Undergraduate",
+    "company_initials": "ST",
+    "company_color": "#6366F1",
+    "description": "Build high-throughput financial infrastructure, customer dashboard features, and developer-facing APIs powering global internet commerce.",
+    "required_skills": ["TypeScript", "React", "Node.js", "REST APIs", "PostgreSQL"],
+    "preferred_skills": ["Next.js", "Docker", "Tailwind CSS", "GraphQL", "Unit Testing"],
+    "responsibilities": [
+      "Design and deploy user-facing web experiences using React and TypeScript",
+      "Architect reliable microservices endpoints handling millions of daily events",
+      "Participate in code reviews and production on-call shadowing"
+    ],
+    "learning_outcomes": [
+      "Mastery of high-availability distributed web architecture",
+      "Enterprise test-driven development and CI/CD best practices"
+    ]
+  },
+  {
+    "id": "int-03",
+    "title": "Generative AI & LLM Applications Intern",
+    "company": "OpenAI",
+    "domain": "AI & Machine Learning",
+    "location": "San Francisco, CA",
+    "work_type": "Onsite",
+    "duration": "12 Weeks",
+    "stipend": "$62/hr ($9,920/mo)",
+    "level": "Undergrad / Masters",
+    "company_initials": "OA",
+    "company_color": "#10B981",
+    "description": "Prototype next-generation developer tooling, multi-modal agents, and retrieval-augmented reasoning systems built on GPT-4o and reasoning models.",
+    "required_skills": ["Python", "Large Language Models", "RAG", "Vector Databases", "FastAPI"],
+    "preferred_skills": ["LangChain", "PyTorch", "Docker", "TypeScript", "Prompt Engineering"],
+    "responsibilities": [
+      "Construct high-precision RAG pipelines using hybrid vector search and reranking",
+      "Evaluate prompt robustness and hallucination mitigation techniques",
+      "Build interactive prototype UIs for internal researcher tooling"
+    ],
+    "learning_outcomes": [
+      "Expertise in modern Agentic workflows and evaluation harness design",
+      "Direct mentorship from senior research engineers"
+    ]
+  },
+  {
+    "id": "int-04",
+    "title": "Cloud Infrastructure & Platform Intern",
+    "company": "Datadog",
+    "domain": "Cloud & DevOps",
+    "location": "New York, NY",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$50/hr ($8,000/mo)",
+    "level": "Undergraduate",
+    "company_initials": "DD",
+    "company_color": "#8B5CF6",
+    "description": "Scale real-time monitoring infrastructure managing trillions of metrics per day across multi-cloud Kubernetes clusters.",
+    "required_skills": ["Go", "Docker", "Kubernetes", "Linux", "AWS"],
+    "preferred_skills": ["Terraform", "Prometheus", "CI/CD", "GitHub Actions", "Python"],
+    "responsibilities": [
+      "Automate cluster provisioning using Terraform and custom Kubernetes controllers",
+      "Enhance observability pipelines and metric telemetry agents",
+      "Investigate and optimize kernel eBPF network tracing"
+    ],
+    "learning_outcomes": [
+      "Production container orchestration at hyper-scale",
+      "Deep understanding of Linux systems and cloud networking"
+    ]
+  },
+  {
+    "id": "int-05",
+    "title": "Data Science & Growth Analytics Intern",
+    "company": "Spotify",
+    "domain": "Data & Analytics",
+    "location": "New York, NY",
+    "work_type": "Remote",
+    "duration": "10 Weeks",
+    "stipend": "$46/hr ($7,360/mo)",
+    "level": "Undergrad / Masters",
+    "company_initials": "SP",
+    "company_color": "#22C55E",
+    "description": "Analyze user listening behavior, model subscription conversion funnels, and design A/B test experiments for personalized audio recommendations.",
+    "required_skills": ["Python", "SQL", "Pandas", "Data Analysis", "A/B Testing"],
+    "preferred_skills": ["Tableau", "Apache Spark", "Scikit-Learn", "Statistical Modeling", "BigQuery"],
+    "responsibilities": [
+      "Query multi-terabyte BigQuery datasets to uncover discovery trends",
+      "Formulate statistical hypotheses and analyze controlled A/B test splits",
+      "Deliver interactive executive dashboards and narrative presentations"
+    ],
+    "learning_outcomes": [
+      "Rigorous experimental design methodology in a consumer tech giant",
+      "Advanced data wrangling and storytelling"
+    ]
+  },
+  {
+    "id": "int-06",
+    "title": "Frontend Engineering Intern (Design Systems)",
+    "company": "Figma",
+    "domain": "Fullstack Development",
+    "location": "San Francisco, CA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$52/hr ($8,320/mo)",
+    "level": "Undergraduate",
+    "company_initials": "FG",
+    "company_color": "#EC4899",
+    "description": "Craft intuitive, buttery-smooth web canvas interfaces and build accessible design system components used by millions of creative professionals.",
+    "required_skills": ["JavaScript", "TypeScript", "React", "HTML", "CSS"],
+    "preferred_skills": ["Tailwind CSS", "WebAssembly", "UI/UX Design", "Figma", "Responsive Web Design"],
+    "responsibilities": [
+      "Develop ultra-responsive component libraries with strict accessibility standards",
+      "Optimize rendering pipelines for complex vector graphics and multiplayer cursors",
+      "Partner with product designers to bridge code and visual specs"
+    ],
+    "learning_outcomes": [
+      "World-class frontend performance optimization techniques",
+      "Deep mastery of browser DOM engines and CSS layout mechanics"
+    ]
+  },
+  {
+    "id": "int-07",
+    "title": "Computer Vision & Perception Intern",
+    "company": "Tesla",
+    "domain": "AI & Machine Learning",
+    "location": "Palo Alto, CA",
+    "work_type": "Onsite",
+    "duration": "16 Weeks",
+    "stipend": "$48/hr ($7,680/mo)",
+    "level": "Undergrad / Masters",
+    "company_initials": "TS",
+    "company_color": "#EF4444",
+    "description": "Train real-time neural networks for occupancy networks, 3D object detection, and lane boundary prediction on Autopilot fleet cameras.",
+    "required_skills": ["Python", "C++", "PyTorch", "Computer Vision", "OpenCV"],
+    "preferred_skills": ["YOLO", "Deep Learning", "Linux", "ONNX", "Docker"],
+    "responsibilities": [
+      "Train vision backbone models on multi-camera surround video streams",
+      "Quantize neural network weights for low-latency automotive hardware inference",
+      "Validate trajectory estimation against ground truth spatial data"
+    ],
+    "learning_outcomes": [
+      "Embedded neural network deployment and real-time inference",
+      "Production edge AI pipelines handling massive video datasets"
+    ]
+  },
+  {
+    "id": "int-08",
+    "title": "Distributed Systems & Backend Intern",
+    "company": "Snowflake",
+    "domain": "Systems & CS",
+    "location": "San Mateo, CA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$55/hr ($8,800/mo)",
+    "level": "Undergraduate",
+    "company_initials": "SF",
+    "company_color": "#38BDF8",
+    "description": "Engineer core query optimization engines, transactional storage layers, and resilient consensus algorithms for elastic cloud data warehousing.",
+    "required_skills": ["C++", "Java", "Distributed Systems", "Algorithms", "Data Structures"],
+    "preferred_skills": ["SQL", "Operating Systems", "Multithreading", "Linux", "System Design"],
+    "responsibilities": [
+      "Implement memory-efficient hash join and aggregation algorithms",
+      "Diagnose concurrency bottlenecks and lock contention in multithreaded engines",
+      "Write comprehensive unit and integration stress test harnesses"
+    ],
+    "learning_outcomes": [
+      "Deep understanding of distributed consensus, Raft, and columnar engines",
+      "Writing ultra-efficient memory-safe low-level code"
+    ]
+  },
+  {
+    "id": "int-09",
+    "title": "Cybersecurity & Threat Detection Intern",
+    "company": "CrowdStrike",
+    "domain": "Cybersecurity",
+    "location": "Austin, TX",
+    "work_type": "Remote",
+    "duration": "12 Weeks",
+    "stipend": "$47/hr ($7,520/mo)",
+    "level": "Undergraduate",
+    "company_initials": "CS",
+    "company_color": "#DC2626",
+    "description": "Uncover zero-day vulnerabilities, analyze malware telemetry, and construct automated endpoint threat hunting rules.",
+    "required_skills": ["Python", "Cybersecurity", "Network Security", "Linux", "Wireshark"],
+    "preferred_skills": ["Penetration Testing", "Cryptography", "OWASP", "Bash", "Incident Response"],
+    "responsibilities": [
+      "Reverse engineer suspicious payloads to identify attack vectors",
+      "Craft behavioral detection signatures for cloud and host workloads",
+      "Simulate red team adversary techniques against sandbox environments"
+    ],
+    "learning_outcomes": [
+      "Industry threat intelligence lifecycle and MITRE ATT&CK mapping",
+      "Real-world incident forensics and telemetry analysis"
+    ]
+  },
+  {
+    "id": "int-10",
+    "title": "Data Engineering & Pipeline Intern",
+    "company": "Netflix",
+    "domain": "Data & Analytics",
+    "location": "Los Gatos, CA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$56/hr ($8,960/mo)",
+    "level": "Undergraduate",
+    "company_initials": "NF",
+    "company_color": "#E11D48",
+    "description": "Architect streaming ETL data pipelines capturing playback telemetry, encoding metrics, and user recommendation signals.",
+    "required_skills": ["Python", "SQL", "Apache Spark", "PySpark", "Data Engineering"],
+    "preferred_skills": ["Apache Kafka", "Airflow", "AWS", "Snowflake", "Docker"],
+    "responsibilities": [
+      "Maintain scalable streaming DAGs processing billions of events daily",
+      "Optimize partition pruning and shuffle stages in PySpark transformations",
+      "Ensure data quality SLAs through automated validation gates"
+    ],
+    "learning_outcomes": [
+      "Designing fault-tolerant event streams with Apache Kafka and Spark",
+      "Modern data lakehouse patterns (Iceberg / Delta Lake)"
+    ]
+  },
+  {
+    "id": "int-11",
+    "title": "Mobile Software Engineering Intern (iOS/Android)",
+    "company": "Duolingo",
+    "domain": "Fullstack Development",
+    "location": "Pittsburgh, PA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$46/hr ($7,360/mo)",
+    "level": "Undergraduate",
+    "company_initials": "DL",
+    "company_color": "#84CC16",
+    "description": "Gamify language learning! Build delight-driven interactive exercises, animations, and speech feedback mechanics for 100M+ global learners.",
+    "required_skills": ["Kotlin", "Swift", "Mobile UI", "Git", "Object-Oriented Programming"],
+    "preferred_skills": ["React Native", "Flutter", "REST APIs", "Unit Testing", "Algorithms"],
+    "responsibilities": [
+      "Build native mobile screens with fluid gesture animations and sound effects",
+      "Integrate speech recognition endpoints with low-latency client caching",
+      "Conduct A/B testing on user retention mechanics and achievement badges"
+    ],
+    "learning_outcomes": [
+      "Native mobile architecture (Jetpack Compose / SwiftUI)",
+      "High-scale consumer mobile retention engineering"
+    ]
+  },
+  {
+    "id": "int-12",
+    "title": "UI/UX & Product Design Intern",
+    "company": "Canva",
+    "domain": "UI/UX & Product",
+    "location": "San Francisco, CA",
+    "work_type": "Remote",
+    "duration": "12 Weeks",
+    "stipend": "$44/hr ($7,040/mo)",
+    "level": "Undergraduate",
+    "company_initials": "CV",
+    "company_color": "#06B6D4",
+    "description": "Design delightful creative tools, conduct generative user interviews, and construct responsive micro-interactions for modern content creators.",
+    "required_skills": ["Figma", "UI/UX Design", "Wireframing", "Prototyping", "User Research"],
+    "preferred_skills": ["Design Systems", "HTML", "CSS", "Usability Testing", "Product Management"],
+    "responsibilities": [
+      "Create high-fidelity interactive Figma prototypes for new AI generation canvas tools",
+      "Run moderated user interviews to identify usability frictions",
+      "Document reusable component tokens in the company design system"
+    ],
+    "learning_outcomes": [
+      "Human-centered design thinking in a top-tier visual SaaS product",
+      "Cross-functional collaboration with PMs and engineering leads"
+    ]
+  },
+  {
+    "id": "int-13",
+    "title": "DevOps & Site Reliability Intern",
+    "company": "Cloudflare",
+    "domain": "Cloud & DevOps",
+    "location": "San Francisco, CA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$51/hr ($8,160/mo)",
+    "level": "Undergraduate",
+    "company_initials": "CF",
+    "company_color": "#F97316",
+    "description": "Defend and accelerate 20% of the world's web traffic! Automate edge deployments, DNS edge routers, and DDoS mitigation controllers.",
+    "required_skills": ["Linux", "Bash", "Docker", "CI/CD", "Computer Networks"],
+    "preferred_skills": ["Go", "Python", "Kubernetes", "Prometheus", "Terraform"],
+    "responsibilities": [
+      "Build automated canary deployment gates for global edge server instances",
+      "Monitor routing latency anomalies across 300+ city PoPs",
+      "Write incident automation playbooks in Bash and Python"
+    ],
+    "learning_outcomes": [
+      "Deep understanding of BGP, TCP/IP, Anycast routing, and TLS termination",
+      "Resilient zero-downtime global infrastructure operations"
+    ]
+  },
+  {
+    "id": "int-14",
+    "title": "NLP & Language Technologies Intern",
+    "company": "Hugging Face",
+    "domain": "AI & Machine Learning",
+    "location": "New York, NY",
+    "work_type": "Remote",
+    "duration": "12 Weeks",
+    "stipend": "$52/hr ($8,320/mo)",
+    "level": "Undergrad / Masters",
+    "company_initials": "HF",
+    "company_color": "#FBBF24",
+    "description": "Empower the open-source AI community! Optimize open weights transformers, tokenizers, and lightweight parameter-efficient fine-tuning (LoRA).",
+    "required_skills": ["Python", "PyTorch", "Transformers", "Natural Language Processing", "Hugging Face"],
+    "preferred_skills": ["Model Fine-Tuning", "LoRA", "Git", "Scikit-Learn", "FastAPI"],
+    "responsibilities": [
+      "Implement new state-of-the-art architectures in the transformers repository",
+      "Benchmark training speed and memory footprints using vLLM and flash-attention",
+      "Write open-source educational demo spaces on Hugging Face Hub"
+    ],
+    "learning_outcomes": [
+      "Direct contribution to the world's most popular open-source AI library",
+      "Advanced parameter-efficient tuning and quantization methods"
+    ]
+  },
+  {
+    "id": "int-15",
+    "title": "Backend Engineering Intern (Payments Core)",
+    "company": "Shopify",
+    "domain": "Fullstack Development",
+    "location": "Toronto, ON (Remote)",
+    "work_type": "Remote",
+    "duration": "14 Weeks",
+    "stipend": "$48/hr ($7,680/mo)",
+    "level": "Undergraduate",
+    "company_initials": "SH",
+    "company_color": "#059669",
+    "description": "Power merchant checkouts during flash sales and Black Friday. Optimize high-concurrency database transactions and idempotent API endpoints.",
+    "required_skills": ["Ruby", "PostgreSQL", "REST APIs", "Git", "Data Structures"],
+    "preferred_skills": ["Redis", "Docker", "Microservices", "GraphQL", "Unit Testing"],
+    "responsibilities": [
+      "Refactor checkout processing pipelines to reduce p99 response times",
+      "Implement distributed locking mechanisms using Redis",
+      "Write comprehensive regression tests ensuring zero payment loss"
+    ],
+    "learning_outcomes": [
+      "Scaling relational databases and background queues under extreme traffic spikes",
+      "Robust transactional integrity and fault recovery patterns"
+    ]
+  },
+  {
+    "id": "int-16",
+    "title": "AI Platform & MLOps Intern",
+    "company": "Scale AI",
+    "domain": "AI & Machine Learning",
+    "location": "San Francisco, CA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$54/hr ($8,640/mo)",
+    "level": "Undergraduate",
+    "company_initials": "SC",
+    "company_color": "#6D28D9",
+    "description": "Construct automated data annotation pipelines, active learning feedback loops, and model evaluation benchmarks for enterprise LLMs.",
+    "required_skills": ["Python", "FastAPI", "Docker", "Machine Learning", "PostgreSQL"],
+    "preferred_skills": ["MLflow", "Kubernetes", "AWS", "PyTorch", "Pandas"],
+    "responsibilities": [
+      "Build REST endpoints serving automated model validation checks",
+      "Deploy containerized inference tasks orchestrated on AWS and Kubernetes",
+      "Create data drift detection monitors flagging dataset distribution shifts"
+    ],
+    "learning_outcomes": [
+      "End-to-end MLOps lifecycle from data curation to production monitoring",
+      "Enterprise software design for AI workflows"
+    ]
+  },
+  {
+    "id": "int-17",
+    "title": "Frontend Software Engineering Intern",
+    "company": "Vercel",
+    "domain": "Fullstack Development",
+    "location": "San Francisco, CA",
+    "work_type": "Remote",
+    "duration": "12 Weeks",
+    "stipend": "$50/hr ($8,000/mo)",
+    "level": "Undergraduate",
+    "company_initials": "VC",
+    "company_color": "#000000",
+    "description": "Build developer-first web interfaces, edge deployment analytics, and next-generation developer tooling for Next.js and the modern web.",
+    "required_skills": ["TypeScript", "Next.js", "React", "Tailwind CSS", "HTML"],
+    "preferred_skills": ["Node.js", "GraphQL", "WebSockets", "CSS", "Responsive Web Design"],
+    "responsibilities": [
+      "Ship high-performance React server components with instant page transitions",
+      "Build real-time deployment status feeds and error streaming logs",
+      "Contribute to open-source UI libraries and starter templates"
+    ],
+    "learning_outcomes": [
+      "Cutting-edge React Server Components and edge computing patterns",
+      "Micro-animations and pixel-perfect design craftsmanship"
+    ]
+  },
+  {
+    "id": "int-18",
+    "title": "Applied Scientist Intern (RecSys)",
+    "company": "Pinterest",
+    "domain": "AI & Machine Learning",
+    "location": "San Francisco, CA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$55/hr ($8,800/mo)",
+    "level": "Undergrad / Masters",
+    "company_initials": "PT",
+    "company_color": "#E11D48",
+    "description": "Develop graph neural networks and deep retrieval models connecting 500M+ Pinners to inspiring visual ideas and shopping experiences.",
+    "required_skills": ["Python", "PyTorch", "Machine Learning", "Deep Learning", "Algorithms"],
+    "preferred_skills": ["Vector Databases", "Scikit-Learn", "Data Analysis", "Apache Spark", "System Design"],
+    "responsibilities": [
+      "Train two-tower embedding models for personalized home feed candidate generation",
+      "Perform offline simulation benchmarks against historical user clicks",
+      "Deploy candidate generator models into low-latency C++ retrieval servers"
+    ],
+    "learning_outcomes": [
+      "Industrial recommender systems at scale (GraphSAGE, two-tower DNNs)",
+      "Offline vs online metric evaluation correlation"
+    ]
+  },
+  {
+    "id": "int-19",
+    "title": "Application Security & Pentesting Intern",
+    "company": "GitHub",
+    "domain": "Cybersecurity",
+    "location": "San Francisco, CA",
+    "work_type": "Remote",
+    "duration": "12 Weeks",
+    "stipend": "$49/hr ($7,840/mo)",
+    "level": "Undergraduate",
+    "company_initials": "GH",
+    "company_color": "#333333",
+    "description": "Fortify code hosting pipelines, secure supply-chain integrity, and perform vulnerability triage across public and private GitHub repositories.",
+    "required_skills": ["Cybersecurity", "Python", "OWASP", "Git", "Linux"],
+    "preferred_skills": ["Penetration Testing", "Vulnerability Assessment", "Burp Suite", "Docker", "CI/CD"],
+    "responsibilities": [
+      "Audit automated code scanning (CodeQL) rules for precision and recall",
+      "Review pull requests for authentication vulnerabilities and injection flaws",
+      "Participate in bug bounty report reproduction and developer remediation"
+    ],
+    "learning_outcomes": [
+      "Software supply chain security (Sigstore, SBOMs, SLSA)",
+      "Secure development lifecycle in world's leading developer platform"
+    ]
+  },
+  {
+    "id": "int-20",
+    "title": "Database Engine Intern",
+    "company": "MongoDB",
+    "domain": "Systems & CS",
+    "location": "New York, NY",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$51/hr ($8,160/mo)",
+    "level": "Undergraduate",
+    "company_initials": "MG",
+    "company_color": "#16A34A",
+    "description": "Build high-speed wiredTiger storage engine optimizations, B-tree concurrency improvements, and distributed sharding routing protocols.",
+    "required_skills": ["C++", "Data Structures", "Algorithms", "Operating Systems", "Linux"],
+    "preferred_skills": ["MongoDB", "Distributed Systems", "Multithreading", "Debugging", "Git"],
+    "responsibilities": [
+      "Implement write-path cache eviction enhancements to reduce p99 write latency",
+      "Write multi-threaded benchmarks simulating thousands of concurrent writers",
+      "Debug memory corruption bugs using Valgrind and AddressSanitizer"
+    ],
+    "learning_outcomes": [
+      "Modern database storage architectures and lock-free data structures",
+      "Mastery of C++17/20 systems programming and profiling"
+    ]
+  },
+  {
+    "id": "int-21",
+    "title": "Product Management Intern",
+    "company": "Linear",
+    "domain": "UI/UX & Product",
+    "location": "San Francisco, CA",
+    "work_type": "Remote",
+    "duration": "10 Weeks",
+    "stipend": "$45/hr ($7,200/mo)",
+    "level": "Undergraduate",
+    "company_initials": "LN",
+    "company_color": "#5E6AD2",
+    "description": "Define product specs, interview engineering leaders, and shape next-generation project tracking and workflow automation tooling.",
+    "required_skills": ["Product Management", "Agile", "User Research", "Communication", "Problem Solving"],
+    "preferred_skills": ["UI/UX Design", "Figma", "Data Analysis", "Scrum", "Technical Writing"],
+    "responsibilities": [
+      "Conduct in-depth user interviews with high-growth startup engineering leads",
+      "Draft clear PRDs with wireframes and success metrics",
+      "Coordinate launch telemetry and monitor adoption funnels"
+    ],
+    "learning_outcomes": [
+      "Product-led growth principles and craftsmanship-driven product strategy",
+      "Translating user pain points into elegant minimal feature sets"
+    ]
+  },
+  {
+    "id": "int-22",
+    "title": "Data Visualization & Analytics Intern",
+    "company": "Tableau (Salesforce)",
+    "domain": "Data & Analytics",
+    "location": "Seattle, WA",
+    "work_type": "Hybrid",
+    "duration": "12 Weeks",
+    "stipend": "$47/hr ($7,520/mo)",
+    "level": "Undergraduate",
+    "company_initials": "TB",
+    "company_color": "#EA580C",
+    "description": "Design interactive analytical dashboards, optimize visual query calculations, and invent new chart paradigms for business intelligence.",
+    "required_skills": ["SQL", "Tableau", "Data Analysis", "Data Visualization", "Python"],
+    "preferred_skills": ["Power BI", "Pandas", "JavaScript", "Statistical Modeling", "ETL Pipelines"],
+    "responsibilities": [
+      "Design complex drill-down dashboards tracking global supply metrics",
+      "Optimize VizQL query generation against cloud data lakes",
+      "Construct interactive tutorials for enterprise business analysts"
+    ],
+    "learning_outcomes": [
+      "Visual perception theory and storytelling with data",
+      "Advanced analytical calculation engines (LOD expressions, window functions)"
+    ]
+  },
+  {
+    "id": "int-23",
+    "title": "Autonomous Systems Software Intern",
+    "company": "Waymo",
+    "domain": "Systems & CS",
+    "location": "Mountain View, CA",
+    "work_type": "Onsite",
+    "duration": "14 Weeks",
+    "stipend": "$56/hr ($8,960/mo)",
+    "level": "Undergrad / Masters",
+    "company_initials": "WY",
+    "company_color": "#0284C7",
+    "description": "Develop safety-critical trajectory planners, collision avoidance simulations, and sensor fusion algorithms for the Waymo Driver.",
+    "required_skills": ["C++", "Algorithms", "Linear Algebra", "Linux", "Data Structures"],
+    "preferred_skills": ["Python", "Computer Vision", "Operating Systems", "Git", "System Design"],
+    "responsibilities": [
+      "Simulate edge-case intersection scenarios using physical dynamics models",
+      "Optimize real-time trajectory optimization solvers running in <10ms cycles",
+      "Write automated safety verification tests against historical drive disengagements"
+    ],
+    "learning_outcomes": [
+      "Safety-critical real-time autonomous vehicle software engineering",
+      "Modern robotics planning and control algorithms"
+    ]
+  },
+  {
+    "id": "int-24",
+    "title": "Fullstack Cloud Apps Intern",
+    "company": "Atlassian",
+    "domain": "Fullstack Development",
+    "location": "Austin, TX",
+    "work_type": "Remote",
+    "duration": "12 Weeks",
+    "stipend": "$48/hr ($7,680/mo)",
+    "level": "Undergraduate",
+    "company_initials": "AT",
+    "company_color": "#2563EB",
+    "description": "Build collaborative real-time team software features across Jira and Confluence cloud architectures.",
+    "required_skills": ["JavaScript", "TypeScript", "React", "Node.js", "REST APIs"],
+    "preferred_skills": ["AWS", "Docker", "PostgreSQL", "Tailwind CSS", "Agile Methodology"],
+    "responsibilities": [
+      "Develop modular frontend widgets and rich text editor extensions",
+      "Implement serverless AWS Lambda microservices backing collaborative canvas features",
+      "Participate in sprint retrospectives and asynchronous code reviews"
+    ],
+    "learning_outcomes": [
+      "Building at scale for 250,000+ business enterprise customers",
+      "Micro-frontend architecture and reusable component libraries"
+    ]
+  }
+]

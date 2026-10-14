@@ -1,0 +1,117 @@
+[
+  {
+    "id": "alex-chen",
+    "name": "Alex Chen",
+    "title": "Machine Learning & AI Researcher",
+    "email": "alex.chen@berkeley.edu",
+    "phone": "+1 (510) 555-0142",
+    "links": {
+      "github": "https://github.com/alexchen-ai",
+      "linkedin": "https://linkedin.com/in/alexchen-ai"
+    },
+    "education": "B.S. in Electrical Engineering & Computer Science, UC Berkeley (GPA: 3.92)",
+    "extracted_skills": [
+      "Python", "PyTorch", "Transformers", "Machine Learning", "Deep Learning",
+      "Computer Vision", "Scikit-Learn", "Git", "Docker", "FastAPI",
+      "NumPy", "Pandas", "Linear Algebra", "Linux"
+    ],
+    "experience_summary": "Undergraduate Researcher at Berkeley AI Research (BAIR) working on vision transformers. Built open-source diffusion pipeline with 1.2k GitHub stars.",
+    "bio": "Passionate about deep learning, foundation models, and computer vision. Strong theoretical math foundation combined with hands-on PyTorch engineering."
+  },
+  {
+    "id": "maya-patel",
+    "name": "Maya Patel",
+    "title": "Fullstack Software Developer",
+    "email": "maya.patel@stanford.edu",
+    "phone": "+1 (650) 555-0298",
+    "links": {
+      "github": "https://github.com/mayapatel-dev",
+      "linkedin": "https://linkedin.com/in/mayapatel-dev",
+      "portfolio": "https://mayapatel.tech"
+    },
+    "education": "B.S. in Computer Science, Stanford University (GPA: 3.85)",
+    "extracted_skills": [
+      "TypeScript", "JavaScript", "React", "Next.js", "Node.js",
+      "PostgreSQL", "REST APIs", "Tailwind CSS", "HTML", "CSS",
+      "Git", "Docker", "GraphQL", "Prisma"
+    ],
+    "experience_summary": "Fullstack intern at a YC fintech startup. Built student marketplace handling 10k monthly active users using Next.js and Supabase.",
+    "bio": "Enthusiastic web engineer dedicated to creating blazing-fast web experiences and clean developer ergonomics with TypeScript and React."
+  },
+  {
+    "id": "jordan-lee",
+    "name": "Jordan Lee",
+    "title": "Data Scientist & Business Analytics Specialist",
+    "email": "jordan.lee@umich.edu",
+    "phone": "+1 (734) 555-0371",
+    "links": {
+      "github": "https://github.com/jordanlee-data",
+      "linkedin": "https://linkedin.com/in/jordanlee-data"
+    },
+    "education": "B.S. in Data Science & Statistics, University of Michigan (GPA: 3.78)",
+    "extracted_skills": [
+      "Python", "SQL", "Pandas", "NumPy", "Tableau", "Data Analysis",
+      "Statistical Modeling", "A/B Testing", "Scikit-Learn", "Data Visualization",
+      "Matplotlib", "Seaborn", "Git", "BigQuery"
+    ],
+    "experience_summary": "Data Analyst intern at healthtech firm. Engineered retention analytics dashboards and automated SQL ETL queries.",
+    "bio": "Analytical problem-solver turning messy unstructured datasets into actionable business clarity and predictive statistical models."
+  },
+  {
+    "id": "marcus-vance",
+    "name": "Marcus Vance",
+    "title": "Cloud, DevOps & SRE Engineer",
+    "email": "marcus.vance@gatech.edu",
+    "phone": "+1 (404) 555-0482",
+    "links": {
+      "github": "https://github.com/marcusvance-ops",
+      "linkedin": "https://linkedin.com/in/marcusvance-ops"
+    },
+    "education": "B.S. in Computer Science (Systems), Georgia Tech (GPA: 3.80)",
+    "extracted_skills": [
+      "Go", "Linux", "Docker", "Kubernetes", "AWS", "Bash",
+      "CI/CD", "GitHub Actions", "Terraform", "Prometheus",
+      "Computer Networks", "Python", "Git"
+    ],
+    "experience_summary": "Lead infrastructure engineer for university computing club managing a 12-node bare-metal Kubernetes cluster hosting student services.",
+    "bio": "Obsessed with automation, zero-downtime deployments, resilient cloud infrastructure, and low-latency distributed networks."
+  },
+  {
+    "id": "elena-rostova",
+    "name": "Elena Rostova",
+    "title": "UI/UX & Product Designer",
+    "email": "elena.rostova@cmu.edu",
+    "phone": "+1 (412) 555-0563",
+    "links": {
+      "linkedin": "https://linkedin.com/in/elenarostova",
+      "portfolio": "https://elenarostova.design"
+    },
+    "education": "B.S. in Human-Computer Interaction, Carnegie Mellon University (GPA: 3.90)",
+    "extracted_skills": [
+      "Figma", "UI/UX Design", "User Research", "Wireframing", "Prototyping",
+      "Design Systems", "Usability Testing", "HTML", "CSS", "Tailwind CSS",
+      "Interaction Design", "Communication"
+    ],
+    "experience_summary": "Product design intern at ed-tech platform. Redesigned onboarding flow that boosted user completion by 28%.",
+    "bio": "Designing intuitive interfaces that bridge the gap between complex technological capabilities and seamless human emotion."
+  },
+  {
+    "id": "liam-oconnor",
+    "name": "Liam O'Connor",
+    "title": "Cybersecurity & Systems Specialist",
+    "email": "liam.oconnor@purdue.edu",
+    "phone": "+1 (765) 555-0619",
+    "links": {
+      "github": "https://github.com/liamoconnor-sec",
+      "linkedin": "https://linkedin.com/in/liamoconnor-sec"
+    },
+    "education": "B.S. in Cybersecurity & Network Engineering, Purdue University (GPA: 3.82)",
+    "extracted_skills": [
+      "Cybersecurity", "Network Security", "Linux", "Python", "Wireshark",
+      "Penetration Testing", "OWASP", "Operating Systems", "Computer Networks",
+      "Bash", "C++", "Git"
+    ],
+    "experience_summary": "Top 1% ranked collegiate CTF player (National Collegiate Cyber Defense Competition). Active security researcher.",
+    "bio": "Defender and offensive security enthusiast focused on threat detection, network protocol reverse engineering, and cloud security posture."
+  }
+]

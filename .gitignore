@@ -1,0 +1,35 @@
+# Python Bytecode & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE & OS Artifacts
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Sensitive Files
+.env
+*.pem
+*.key
+
+# Sample Resumes (uploaded data)
+sample_resumes/uploads/
+
+# Logs
+*.log

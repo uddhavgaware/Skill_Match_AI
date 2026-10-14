@@ -1,0 +1,40 @@
+LIAM O'CONNOR
+West Lafayette, IN | (765) 555-0619 | liam.oconnor@purdue.edu
+github.com/liamoconnor-sec | linkedin.com/in/liamoconnor-sec
+
+EDUCATION
+Purdue University
+Bachelor of Science in Cybersecurity & Network Engineering
+GPA: 3.82 / 4.0 | Expected Graduation: May 2026
+Coursework: Vulnerability Assessment, Network Security, Applied Cryptography, Reverse Engineering, Operating Systems, Computer Networks
+
+TECHNICAL SKILLS
+Security Domains: Cybersecurity, Network Security, Penetration Testing, OWASP, Threat Modeling, Cryptography
+Tools & Frameworks: Wireshark, Nmap, Burp Suite, Metasploit, Snort, Ghidra, Linux, Bash
+Languages: Python, C++, Bash, SQL, Git
+
+EXPERIENCE
+Sentinel Defense Labs — Information Security Intern
+May 2025 - August 2025 | Indianapolis, IN
+• Conducted internal web application penetration testing across 12 staging services following OWASP Top 10 guidelines.
+• Discovered and reported 4 high-severity vulnerabilities including SQL injection and privilege escalation flaws.
+• Created customized Snort intrusion detection rules to flag anomalous egress traffic on corporate DMZ subnets.
+• Drafted executive-level remediation roadmaps and validated patch deployments with development teams.
+
+Purdue Competitive Cyber Team (b01lers) — Team Captain
+August 2024 - Present | West Lafayette, IN
+• Ranked in top 1% nationwide at National Collegiate Cyber Defense Competition (NCCDC).
+• Authored 15+ binary exploitation and web security challenges for annual university CTF event with 1,200+ global participants.
+
+PROJECTS
+PacketSentry: Real-Time Network Anomaly Detector (Python, Scapy, Linux)
+• Built a lightweight packet sniffing daemon analyzing raw socket PCAP streams for SYN flood and port scanning patterns.
+• Integrated automated iptables firewall rule generation to throttle abusive IP ranges in real time.
+
+AuthAudit: Automated JWT & OAuth Security Verifier (Python, Burp Extender, OWASP)
+• Developed an automated vulnerability assessment extension auditing OAuth 2.0 and JWT token signatures for weak algorithms.
+• Used by 800+ security researchers on GitHub; detected broken authorization flaws across popular open-source APIs.
+
+CERTIFICATIONS
+• CompTIA Security+ (2024)
+• Practical Network Penetration Tester (PNPT – In Progress)

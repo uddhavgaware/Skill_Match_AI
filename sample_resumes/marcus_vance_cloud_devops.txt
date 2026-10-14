@@ -1,0 +1,41 @@
+MARCUS VANCE
+Atlanta, GA | (404) 555-0482 | marcus.vance@gatech.edu
+github.com/marcusvance-ops | linkedin.com/in/marcusvance-ops
+
+EDUCATION
+Georgia Institute of Technology
+Bachelor of Science in Computer Science (Systems & Cloud Architecture)
+GPA: 3.80 / 4.0 | Expected Graduation: May 2026
+Coursework: Distributed Systems, Operating Systems, Computer Networks, Cloud Computing, System Security, Computer Organization
+
+TECHNICAL SKILLS
+Languages: Go, Python, Bash, C, SQL
+Cloud & Infrastructure: AWS, Docker, Kubernetes, Terraform, Linux, Helm, Ansible
+CI/CD & Observability: GitHub Actions, Prometheus, Grafana, CI/CD, Git, Computer Networks, Nginx
+
+EXPERIENCE
+CloudScale Systems — DevOps & Cloud Engineering Intern
+June 2025 - August 2025 | Austin, TX (Hybrid)
+• Designed and provisioned multi-region AWS infrastructure (VPC, EKS, RDS, S3) using modular Terraform templates.
+• Migrated 14 legacy VM-hosted microservices into Docker containers orchestrated on Kubernetes clusters.
+• Configured automated GitHub Actions CI/CD deployment pipelines cutting deployment cycle time from 45m to 8m.
+• Implemented cluster telemetry using Prometheus and Grafana alerts, achieving 99.98% infrastructure uptime.
+
+Georgia Tech Student Infrastructure Guild — Head Systems Administrator
+August 2024 - Present | Atlanta, GA
+• Administer 12 bare-metal Linux servers and Ceph distributed storage hosting 45+ student organization web services.
+• Automated zero-downtime rolling upgrades and automated snapshot backups using Bash scripts and cron jobs.
+
+PROJECTS
+KubeWatch: Lightweight Kubernetes Pod Health Monitor (Go, Kubernetes API, Docker)
+• Engineered a lightweight Go daemon that monitors Kubernetes pod restarts and memory pressure via Informer APIs.
+• Packaged daemon as a Helm chart with configurable alerting webhooks for Slack and PagerDuty.
+• Open-sourced with 450+ GitHub stars; featured on r/devops and Cloud Native Weekly.
+
+CloudGuard: Automated AWS Infrastructure Drift Detection (Python, Boto3, Terraform)
+• Built automated Python script querying AWS CloudTrail and Config to detect out-of-band security group modifications.
+• Automatically generates corrective Terraform pull requests to restore compliant infrastructure state.
+
+CERTIFICATIONS
+• AWS Certified Solutions Architect – Associate (2025)
+• Certified Kubernetes Administrator (CKA – In Progress)

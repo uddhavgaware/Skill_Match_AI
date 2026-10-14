@@ -1,0 +1,40 @@
+JORDAN LEE
+Ann Arbor, MI | (734) 555-0371 | jordan.lee@umich.edu
+github.com/jordanlee-data | linkedin.com/in/jordanlee-data
+
+EDUCATION
+University of Michigan, Ann Arbor
+Bachelor of Science in Data Science & Statistics
+GPA: 3.78 / 4.0 | Expected Graduation: May 2026
+Coursework: Applied Statistics, Machine Learning, Database Management, A/B Testing, Time Series Analysis, Statistical Inference
+
+TECHNICAL SKILLS
+Languages: Python, SQL, R, Bash
+Data Science & ML: Pandas, NumPy, Scikit-Learn, Statistical Modeling, A/B Testing, Matplotlib, Seaborn
+Big Data & BI: BigQuery, PostgreSQL, Tableau, Snowflake, Git, Jupyter
+
+EXPERIENCE
+CarePulse Healthtech — Data Analytics Intern
+May 2025 - August 2025 | Chicago, IL
+• Engineered automated SQL pipelines in BigQuery transforming 2M+ daily patient engagement telemetry records.
+• Conducted cohort retention and multivariate A/B testing that improved patient portal 30-day reactivation by 14%.
+• Designed interactive executive Tableau dashboards used weekly by VP of Product and Clinical Operations.
+
+Michigan Sports Analytics Group — Lead Statistical Analyst
+September 2024 - Present | Ann Arbor, MI
+• Developed expected-points-added (EPA) statistical models using Python and Pandas on collegiate athletic datasets.
+• Implemented automated feature engineering pipelines and random forest classifiers predicting player workload fatigue.
+
+PROJECTS
+ChurnSight: Customer Lifetime Value & Churn Predictor (Python, Scikit-Learn, Pandas)
+• Built an end-to-end customer churn prediction pipeline with 87% ROC-AUC using XGBoost and logistic regression.
+• Performed extensive exploratory data analysis (EDA), handling class imbalance with SMOTE and cross-validation.
+• Deployed interactive Streamlit application enabling marketing teams to simulate retention discounts.
+
+UrbanTransit: Public Transit Delay Forecaster (Python, SQL, Matplotlib, Time Series)
+• Ingested 500,000+ historical municipal transit records to predict bus delay likelihood across 35 urban routes.
+• Evaluated ARIMA and gradient-boosted trees against baseline schedules, reducing forecast variance by 22%.
+
+HONORS & LEADERSHIP
+• 1st Place, Midwest University Datathon 2025
+• President, Data Science Student Association (DSSA)

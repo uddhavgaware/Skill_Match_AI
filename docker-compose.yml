@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  skillmatch-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: skillmatch-ai:latest
+    container_name: skillmatch-ai-app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - HOST=0.0.0.0
+      - PORT=8000
+      - WORKERS=4
+      - ALLOWED_ORIGINS=*
+      - LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1024M
+        reservations:
+          cpus: "0.5"
+          memory: 256M

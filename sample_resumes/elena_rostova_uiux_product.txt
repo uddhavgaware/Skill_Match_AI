@@ -1,0 +1,40 @@
+ELENA ROSTOVA
+Pittsburgh, PA | (412) 555-0563 | elena.rostova@cmu.edu
+linkedin.com/in/elenarostova | elenarostova.design
+
+EDUCATION
+Carnegie Mellon University
+Bachelor of Science in Human-Computer Interaction & Design
+GPA: 3.90 / 4.0 | Expected Graduation: May 2026
+Coursework: Interaction Design, User Research Methods, Design Systems, Usability Testing, Cognitive Psychology, Web Prototyping
+
+TECHNICAL SKILLS
+Design & Prototyping: Figma, UI/UX Design, Wireframing, Prototyping, Design Systems, Interaction Design, User Research
+UX Research: Usability Testing, User Interviews, Information Architecture, Journey Mapping, Persona Development
+Technical Foundations: HTML, CSS, Tailwind CSS, JavaScript, Git, Communication
+
+EXPERIENCE
+LearnSphere EdTech — Product Design Intern
+May 2025 - August 2025 | New York, NY (Hybrid)
+• Spearheaded comprehensive user research and UX overhaul of student onboarding flow, boosting 7-day completion by 28%.
+• Built and documented a scalable design system in Figma comprising 120+ responsive components and token variables.
+• Conducted 24 semi-structured usability testing sessions to identify onboarding bottlenecks and cognitive friction points.
+• Collaborated daily with engineering leads to ensure pixel-perfect CSS and accessibility (WCAG AA) conformance.
+
+CMU Design for America — Lead UI/UX Designer
+September 2024 - Present | Pittsburgh, PA
+• Partnered with local non-profit healthcare clinic to design an accessible patient appointment scheduling portal.
+• Synthesized contextual inquiry findings into interactive high-fidelity prototypes validated with elderly patients.
+
+PROJECTS
+Stride: Habit Tracking & Micro-Journaling App (Figma, Design Systems, Prototyping)
+• Designed end-to-end iOS mobile experience with dynamic dark and light mode themes, micro-interactions, and haptic feedback.
+• Awarded "Best Interaction Design" at CMU HCI Spring Showcase 2025; showcased in Figma Community with 2,400+ duplicates.
+
+EcoTransit: Urban Multimodal Mobility Interface (Figma, User Research, Wireframing)
+• Conducted field user interviews across Pittsburgh bus and subway riders to conceptualize consolidated transit ticketing.
+• Prototyped high-fidelity map interface minimizing cognitive load during rush-hour navigation.
+
+AWARDS
+• 1st Place, Adobe Creative Jam CMU 2025
+• CMU School of Design Academic Excellence Award

@@ -1,0 +1,35 @@
+ALEX CHEN
+San Francisco, CA | (510) 555-0142 | alex.chen@berkeley.edu
+github.com/alexchen-ai | linkedin.com/in/alexchen-ai
+
+EDUCATION
+University of California, Berkeley
+Bachelor of Science in Electrical Engineering & Computer Science
+GPA: 3.92 / 4.0 | Expected Graduation: May 2026
+Relevant Coursework: Deep Neural Networks, Natural Language Processing, Computer Vision, Algorithms, Linear Algebra, Probability Theory
+
+TECHNICAL SKILLS
+Languages: Python, C++, SQL, Bash
+Frameworks & Libraries: PyTorch, TensorFlow, Hugging Face Transformers, Scikit-Learn, OpenCV, NumPy, Pandas, FastAPI
+DevOps & Tools: Docker, Git, Linux, Weights & Biases, MLflow, ONNX
+
+EXPERIENCE
+Berkeley Artificial Intelligence Research (BAIR) — Undergraduate Researcher
+September 2024 - Present
+• Conduct research on parameter-efficient fine-tuning (LoRA) and vision transformer attention mechanisms under Prof. Darrell.
+• Accelerated multi-GPU training throughput by 28% using PyTorch FSDP and mixed-precision fp16 kernels.
+• Authored comprehensive ablation benchmarks comparing ViT backbones on downstream classification tasks.
+
+PROJECTS
+DiffusionLens: Open-Source Latent Diffusion Pipeline (Python, PyTorch, Hugging Face)
+• Built an end-to-end conditional image generation pipeline using PyTorch with custom classifier-free guidance.
+• Implemented flash-attention memory optimizations allowing batch size 8 on single 24GB VRAM GPU.
+• Garnered 1,200+ GitHub stars and featured in community open-source spotlight.
+
+Autonomous Perception Benchmark (Python, OpenCV, Scikit-Learn, Docker)
+• Engineered a multi-camera object detection and tracking pipeline achieving 42 FPS on edge hardware.
+• Packaged entire inference stack within a lightweight Docker container for reproducible evaluation.
+
+AWARDS & ACTIVITIES
+• Winner, CalHacks 2025 AI Track
+• Dean’s Honors List (All semesters)
