@@ -4,134 +4,10 @@
  * interactive recommendations, live job applications, and recruiter talent workflows.
  */
 
-// Dynamic API Base URL configuration:
-// Supports window.BACKEND_API_URL (from index.html/config) or localStorage override
-const getApiBase = () => {
-  if (window.BACKEND_API_URL && window.BACKEND_API_URL.trim() && !window.BACKEND_API_URL.includes("YOUR-BACKEND-NAME")) {
-    return window.BACKEND_API_URL.replace(/\/+$/, "");
-  }
-  const custom = localStorage.getItem("skillmatch_backend_url");
-  if (custom && custom.trim()) {
-    return custom.replace(/\/+$/, "");
-  }
-  if (window.location.protocol === "file:" || !window.location.origin || window.location.origin === "null") {
-    return "http://localhost:8000";
-  }
-  return "";
-};
-let API_BASE = getApiBase();
-
-// Check backend server connectivity and telemetry
-async function checkBackendHealth() {
-  const statusBtn = document.getElementById("apiStatusBtn");
-  const statusDot = document.getElementById("apiStatusDot");
-  const statusText = document.getElementById("apiStatusText");
-  if (!statusBtn || !statusDot || !statusText) return false;
-
-  statusDot.className = "status-dot-pulse pending";
-  statusText.textContent = "Connecting...";
-
-  try {
-    const targetUrl = API_BASE ? `${API_BASE}/api/health` : "/api/health";
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
-
-    const res = await fetch(targetUrl, { signal: controller.signal });
-    clearTimeout(timeoutId);
-
-    if (res.ok) {
-      const data = await res.json();
-      statusBtn.className = "api-status-btn connected";
-      statusDot.className = "status-dot-pulse online";
-      statusText.textContent = "API Online";
-      statusBtn.title = `Backend Connected: ${API_BASE || 'Same origin'} (${data.indexed_internships || 0} roles indexed)`;
-      return true;
-    } else {
-      throw new Error(`HTTP ${res.status}`);
-    }
-  } catch (err) {
-    statusBtn.className = "api-status-btn offline";
-    statusDot.className = "status-dot-pulse offline";
-    statusText.textContent = "Connect API";
-    statusBtn.title = "Click to configure your Backend URL";
-    return false;
-  }
-}
-
-// Setup Backend Manager Modal and Actions
-function setupBackendManager() {
-  const modal = document.getElementById("backendUrlModal");
-  const openBtn = document.getElementById("apiStatusBtn");
-  const closeBtn = document.getElementById("closeBackendModalBtn");
-  const input = document.getElementById("backendUrlInput");
-  const testBtn = document.getElementById("testBackendBtn");
-  const saveBtn = document.getElementById("saveBackendUrlBtn");
-  const testResult = document.getElementById("backendTestResult");
-
-  if (!modal || !openBtn) return;
-
-  openBtn.addEventListener("click", () => {
-    input.value = localStorage.getItem("skillmatch_backend_url") || API_BASE || "";
-    testResult.style.display = "none";
-    modal.style.display = "flex";
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-  }
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-  });
-
-  if (testBtn) {
-    testBtn.addEventListener("click", async () => {
-      const url = input.value.trim().replace(/\/+$/, "");
-      testResult.style.display = "block";
-      testResult.style.background = "rgba(99, 102, 241, 0.15)";
-      testResult.style.color = "#C7D2FE";
-      testResult.textContent = "Testing connection to " + (url || "same origin") + "...";
-
-      try {
-        const testTarget = url ? `${url}/api/health` : "/api/health";
-        const res = await fetch(testTarget);
-        if (res.ok) {
-          const data = await res.json();
-          testResult.style.background = "rgba(16, 185, 129, 0.15)";
-          testResult.style.color = "#34D399";
-          testResult.innerHTML = `✓ <strong>Connected!</strong> Status: ${data.status}, Roles: ${data.indexed_internships || 0}, ML: ${data.model_status || 'active'}`;
-        } else {
-          testResult.style.background = "rgba(239, 68, 68, 0.15)";
-          testResult.style.color = "#F87171";
-          testResult.textContent = `Server responded with error status ${res.status}`;
-        }
-      } catch (err) {
-        testResult.style.background = "rgba(239, 68, 68, 0.15)";
-        testResult.style.color = "#F87171";
-        testResult.textContent = `Connection failed: ${err.message}. If using Render free tier, server may be waking up (cold start). Check URL and try again.`;
-      }
-    });
-  }
-
-  if (saveBtn) {
-    saveBtn.addEventListener("click", async () => {
-      const url = input.value.trim().replace(/\/+$/, "");
-      if (url) {
-        localStorage.setItem("skillmatch_backend_url", url);
-      } else {
-        localStorage.removeItem("skillmatch_backend_url");
-      }
-      API_BASE = getApiBase();
-      modal.style.display = "none";
-      showToast("Backend URL updated!", "success");
-      await checkBackendHealth();
-      await loadAllInternships();
-      await fetchRecommendations();
-    });
-  }
-}
+// Self-contained API Base (Zero-configuration: automatic same-origin or localhost)
+const API_BASE = (window.location.protocol === "file:" || !window.location.origin || window.location.origin === "null")
+  ? "http://localhost:8000"
+  : "";
 
 // Initial candidate profile helper
 function getInitialProfile() {
@@ -187,13 +63,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupProfileEditor();
   setupApplyFlow();
   setupPostJobFlow();
-  setupBackendManager();
 
   // Initial candidate profile render
   updateCandidateProfile(state.profile, false);
-
-  // Check Backend Connection Health
-  checkBackendHealth();
 
   // Fetch Initial Data
   await loadAllInternships();
@@ -364,15 +236,7 @@ async function uploadResumeFile(file) {
         const errJson = await res.json();
         if (errJson && errJson.detail) detailMsg = errJson.detail;
       } catch (e) {}
-
-      if (res.status === 404) {
-        showToast("Backend endpoint not found (404). Please verify your Backend URL.", "error");
-        const modal = document.getElementById("backendUrlModal");
-        if (modal) modal.style.display = "flex";
-        return;
-      }
-
-      throw new Error(detailMsg || `Server error (${res.status})`);
+      throw new Error(detailMsg || `Upload failed (${res.status})`);
     }
 
     const data = await res.json();
@@ -384,13 +248,7 @@ async function uploadResumeFile(file) {
     showToast(`✓ Successfully mapped ${skillCount} skills from ${file.name}!`, "success");
   } catch (err) {
     console.error("Upload error:", err);
-    if (err.name === "TypeError" && (err.message.includes("fetch") || err.message.includes("Failed to fetch") || err.message.includes("NetworkError"))) {
-      showToast("Cannot reach backend server. If using Render free tier, server may be waking up (takes ~30s). Click 'Connect API' in header to check URL.", "error");
-      const modal = document.getElementById("backendUrlModal");
-      if (modal) modal.style.display = "flex";
-    } else {
-      showToast(`Upload error: ${err.message || "Failed to process file"}`, "error");
-    }
+    showToast(`Upload error: ${err.message || "Failed to process resume"}`, "error");
   }
 }
 
@@ -403,7 +261,7 @@ async function parseResumeText(text) {
 
   showToast("Analyzing resume text...", "info");
   try {
-    const parseUrl = API_BASE ? `${API_BASE}/api/parse-text` : "/api/parse-text";
+    const parseUrl = `${API_BASE}/api/parse-text`;
     const res = await fetch(parseUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -416,14 +274,7 @@ async function parseResumeText(text) {
         const errJson = await res.json();
         if (errJson && errJson.detail) detailMsg = errJson.detail;
       } catch (e) {}
-
-      if (res.status === 404) {
-        showToast("Backend API not found (404). Please verify your Backend URL in 'Connect API'.", "error");
-        const modal = document.getElementById("backendUrlModal");
-        if (modal) modal.style.display = "flex";
-        return;
-      }
-      throw new Error(detailMsg || `Server error (${res.status})`);
+      throw new Error(detailMsg || `Analysis failed (${res.status})`);
     }
 
     const data = await res.json();
@@ -435,13 +286,7 @@ async function parseResumeText(text) {
     showToast(`✓ Successfully extracted ${count} skills!`, "success");
   } catch (err) {
     console.error("Text analysis error:", err);
-    if (err.name === "TypeError" && (err.message.includes("fetch") || err.message.includes("Failed to fetch") || err.message.includes("NetworkError"))) {
-      showToast("Cannot reach backend server. If using Render free tier, server may be waking up (cold start ~30s). Click 'Connect API' in header.", "error");
-      const modal = document.getElementById("backendUrlModal");
-      if (modal) modal.style.display = "flex";
-    } else {
-      showToast(`Error analyzing text: ${err.message || "Failed to process"}`, "error");
-    }
+    showToast(`Error analyzing text: ${err.message || "Failed to process"}`, "error");
   }
 }
 

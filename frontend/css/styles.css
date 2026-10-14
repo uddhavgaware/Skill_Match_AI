@@ -224,63 +224,7 @@ body::before {
   gap: 10px;
 }
 
-.api-status-btn {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  border-radius: var(--radius-full);
-  padding: 6px 12px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
 
-.api-status-btn:hover {
-  border-color: var(--border-glow);
-  color: var(--text-main);
-  background: rgba(26, 34, 52, 0.95);
-}
-
-.api-status-btn.connected {
-  border-color: rgba(16, 185, 129, 0.4);
-  color: #34D399;
-  background: rgba(16, 185, 129, 0.1);
-}
-
-.api-status-btn.offline {
-  border-color: rgba(239, 68, 68, 0.4);
-  color: #F87171;
-  background: rgba(239, 68, 68, 0.1);
-}
-
-.status-dot-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #94A3B8;
-  display: inline-block;
-  position: relative;
-}
-
-.status-dot-pulse.online {
-  background: #10B981;
-  box-shadow: 0 0 8px #10B981;
-}
-
-.status-dot-pulse.offline {
-  background: #EF4444;
-  box-shadow: 0 0 8px #EF4444;
-}
-
-.status-dot-pulse.pending {
-  background: #F59E0B;
-  box-shadow: 0 0 8px #F59E0B;
-}
 
 .btn-post-job {
   background: linear-gradient(135deg, #10B981 0%, #059669 100%);
@@ -1993,12 +1937,6 @@ body::before {
     gap: 8px;
   }
 
-  .api-status-btn {
-    flex: 1;
-    justify-content: center;
-    font-size: 0.72rem;
-    padding: 6px 10px;
-  }
 
   .btn-post-job {
     flex: 1;

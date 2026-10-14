@@ -51,10 +51,6 @@
 
       <!-- Production Header Actions -->
       <div class="header-actions">
-        <button class="api-status-btn" id="apiStatusBtn" title="Backend API Status - Click to configure or test connection">
-          <span class="status-dot-pulse" id="apiStatusDot"></span>
-          <span id="apiStatusText">Checking API...</span>
-        </button>
         <button class="btn-post-job" id="headerPostJobBtn">
           <span>+</span> Post a Role
         </button>
@@ -598,45 +594,8 @@
     </div>
   </div>
 
-  <!-- Backend URL Connection Modal -->
-  <div class="modal-backdrop" id="backendUrlModal" style="display: none;">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 class="modal-title">⚙️ Backend API Connection</h3>
-        <button class="modal-close" id="closeBackendModalBtn">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px; line-height: 1.5;">
-          SkillMatch AI requires a connection to your live FastAPI backend service for resume parsing, skills extraction, and hybrid ML matching.
-        </p>
-
-        <div class="form-group">
-          <label class="form-label" for="backendUrlInput">Backend Service URL</label>
-          <input type="url" class="form-input" id="backendUrlInput" placeholder="https://your-backend.onrender.com" autocomplete="off">
-          <small style="display: block; color: var(--text-dim); margin-top: 6px; font-size: 0.78rem;">
-            Tip: Copy the live URL from your Render/Railway Backend Web Service dashboard.
-          </small>
-        </div>
-
-        <div id="backendTestResult" style="margin-top: 12px; font-size: 0.85rem; padding: 10px; border-radius: var(--radius-sm); display: none;"></div>
-      </div>
-
-      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-subtle);">
-        <button type="button" class="btn-secondary" id="testBackendBtn">Test Connection</button>
-        <button type="button" class="btn-primary" id="saveBackendUrlBtn">Save & Apply</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
-
-  <!-- Backend API Configuration -->
-  <script>
-    // Paste your deployed Render Backend Web Service URL here (e.g. "https://skillmatch-backend.onrender.com")
-    // If your frontend and backend run on the same service or domain, leave it as ""
-    window.BACKEND_API_URL = "";
-  </script>
 
   <!-- JavaScript Engines -->
   <script src="js/charts.js"></script>
