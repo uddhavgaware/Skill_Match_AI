@@ -221,7 +221,65 @@ body::before {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+
+.api-status-btn {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.api-status-btn:hover {
+  border-color: var(--border-glow);
+  color: var(--text-main);
+  background: rgba(26, 34, 52, 0.95);
+}
+
+.api-status-btn.connected {
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.api-status-btn.offline {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #F87171;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.status-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94A3B8;
+  display: inline-block;
+  position: relative;
+}
+
+.status-dot-pulse.online {
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.status-dot-pulse.offline {
+  background: #EF4444;
+  box-shadow: 0 0 8px #EF4444;
+}
+
+.status-dot-pulse.pending {
+  background: #F59E0B;
+  box-shadow: 0 0 8px #F59E0B;
 }
 
 .btn-post-job {
@@ -1829,44 +1887,256 @@ body::before {
   margin-top: 14px;
 }
 
-/* Responsive Breakpoints */
+/* ==========================================================================
+   Responsive Design & Device Optimization (PC, Tablet, Mobile)
+   ========================================================================== */
+
+/* PC & Large Displays (1200px+) */
+@media (min-width: 1200px) {
+  .app-container {
+    max-width: 1360px;
+    padding: 0 32px 80px 32px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 380px 1fr;
+    gap: 32px;
+  }
+
+  .profile-card {
+    position: sticky;
+    top: 96px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+}
+
+/* Laptops & Tablets (1080px and below) */
 @media (max-width: 1080px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .profile-card {
     position: static;
+    max-height: none;
   }
 
   .market-grid {
     grid-template-columns: 1fr;
   }
 
+  .recruiter-hub-grid {
+    grid-template-columns: 1fr;
+  }
+
   .stats-banner {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 
-@media (max-width: 720px) {
+/* Mobile Devices & Small Tablets (768px and below) */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 16px 40px 16px;
+  }
+
+  .site-header {
+    margin-bottom: 20px;
+  }
+
   .header-inner {
     flex-direction: column;
     align-items: stretch;
+    padding: 12px 16px;
+    gap: 12px;
   }
 
+  .brand {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .brand-title {
+    font-size: 1.18rem;
+  }
+
+  /* Smooth Native-like Horizontal Tab Bar for Mobile */
   .nav-tabs {
+    display: flex;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    white-space: nowrap;
+    gap: 6px;
+    padding: 6px;
+    width: 100%;
+  }
+
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-btn {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  .header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .api-status-btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  .btn-post-job {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .user-profile-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 24px 0 16px 0;
+    text-align: center;
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
   }
 
   .stats-banner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px 10px;
+  }
+
+  .stat-val {
+    font-size: 1.5rem;
+  }
+
+  /* Radar & Upload Card */
+  .radar-card {
+    padding: 16px;
+  }
+
+  .radar-container {
+    max-height: 270px;
+  }
+
+  .dropzone {
+    padding: 28px 16px;
+  }
+
+  .dropzone-icon {
+    font-size: 2.2rem;
+  }
+
+  /* Recommendation Cards */
+  .recommendation-card {
+    padding: 16px;
+  }
+
+  .rec-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .rec-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .rec-actions button,
+  .rec-actions a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Filter Controls */
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  /* Modals on Mobile */
+  .modal-card {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 16px auto !important;
+    max-height: 90vh !important;
+    padding: 18px !important;
+  }
+
+  .modal-body {
+    max-height: 65vh;
+    overflow-y: auto;
   }
 
   .pathways-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Toast Notification on Mobile */
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .toast {
+    max-width: 100%;
+  }
+}
+
+/* Extra Small Phones (480px and below) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  .btn-post-job span:not(:first-child) {
+    display: inline;
   }
 }

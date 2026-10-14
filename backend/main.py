@@ -282,20 +282,39 @@ async def get_simulation_scenarios():
 @app.post("/api/upload-resume")
 async def upload_resume(file: UploadFile = File(...)):
     """Upload PDF, DOCX, or TXT resume to extract skills and compute instant recommendations."""
-    content = await file.read()
+    try:
+        content = await file.read()
+    except Exception as e:
+        logger.error(f"Error reading uploaded file: {e}")
+        raise HTTPException(status_code=400, detail=f"Could not read uploaded file: {str(e)}")
+
     if not content:
-        raise HTTPException(status_code=400, detail="Uploaded file is empty.")
+        raise HTTPException(status_code=400, detail="Uploaded file is empty (0 bytes).")
 
     filename = file.filename or "resume.txt"
-    parsed_profile = parser.parse_document(content, filename)
+    try:
+        parsed_profile = parser.parse_document(content, filename)
+    except Exception as e:
+        logger.error(f"Error parsing resume {filename}: {e}", exc_info=True)
+        raise HTTPException(status_code=400, detail=f"Failed to parse resume document: {str(e)}")
+
+    # Ensure profile has required fields
+    if not isinstance(parsed_profile, dict):
+        parsed_profile = {"name": "Applicant", "extracted_skills": []}
+
+    skills = parsed_profile.get("extracted_skills", [])
 
     # Initial recommendation
-    recs = recommender.recommend(
-        student_skills=parsed_profile["extracted_skills"],
-        experience_summary=parsed_profile.get("experience_summary", ""),
-        education=parsed_profile.get("education", ""),
-        top_k=12
-    )
+    try:
+        recs = recommender.recommend(
+            student_skills=skills,
+            experience_summary=parsed_profile.get("experience_summary", ""),
+            education=parsed_profile.get("education", ""),
+            top_k=12
+        )
+    except Exception as e:
+        logger.error(f"Error generating recommendations: {e}", exc_info=True)
+        recs = []
 
     return {
         "status": "success",

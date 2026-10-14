@@ -19,7 +19,119 @@ const getApiBase = () => {
   }
   return "";
 };
-const API_BASE = getApiBase();
+let API_BASE = getApiBase();
+
+// Check backend server connectivity and telemetry
+async function checkBackendHealth() {
+  const statusBtn = document.getElementById("apiStatusBtn");
+  const statusDot = document.getElementById("apiStatusDot");
+  const statusText = document.getElementById("apiStatusText");
+  if (!statusBtn || !statusDot || !statusText) return false;
+
+  statusDot.className = "status-dot-pulse pending";
+  statusText.textContent = "Connecting...";
+
+  try {
+    const targetUrl = API_BASE ? `${API_BASE}/api/health` : "/api/health";
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+    const res = await fetch(targetUrl, { signal: controller.signal });
+    clearTimeout(timeoutId);
+
+    if (res.ok) {
+      const data = await res.json();
+      statusBtn.className = "api-status-btn connected";
+      statusDot.className = "status-dot-pulse online";
+      statusText.textContent = "API Online";
+      statusBtn.title = `Backend Connected: ${API_BASE || 'Same origin'} (${data.indexed_internships || 0} roles indexed)`;
+      return true;
+    } else {
+      throw new Error(`HTTP ${res.status}`);
+    }
+  } catch (err) {
+    statusBtn.className = "api-status-btn offline";
+    statusDot.className = "status-dot-pulse offline";
+    statusText.textContent = "Connect API";
+    statusBtn.title = "Click to configure your Backend URL";
+    return false;
+  }
+}
+
+// Setup Backend Manager Modal and Actions
+function setupBackendManager() {
+  const modal = document.getElementById("backendUrlModal");
+  const openBtn = document.getElementById("apiStatusBtn");
+  const closeBtn = document.getElementById("closeBackendModalBtn");
+  const input = document.getElementById("backendUrlInput");
+  const testBtn = document.getElementById("testBackendBtn");
+  const saveBtn = document.getElementById("saveBackendUrlBtn");
+  const testResult = document.getElementById("backendTestResult");
+
+  if (!modal || !openBtn) return;
+
+  openBtn.addEventListener("click", () => {
+    input.value = localStorage.getItem("skillmatch_backend_url") || API_BASE || "";
+    testResult.style.display = "none";
+    modal.style.display = "flex";
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  if (testBtn) {
+    testBtn.addEventListener("click", async () => {
+      const url = input.value.trim().replace(/\/+$/, "");
+      testResult.style.display = "block";
+      testResult.style.background = "rgba(99, 102, 241, 0.15)";
+      testResult.style.color = "#C7D2FE";
+      testResult.textContent = "Testing connection to " + (url || "same origin") + "...";
+
+      try {
+        const testTarget = url ? `${url}/api/health` : "/api/health";
+        const res = await fetch(testTarget);
+        if (res.ok) {
+          const data = await res.json();
+          testResult.style.background = "rgba(16, 185, 129, 0.15)";
+          testResult.style.color = "#34D399";
+          testResult.innerHTML = `✓ <strong>Connected!</strong> Status: ${data.status}, Roles: ${data.indexed_internships || 0}, ML: ${data.model_status || 'active'}`;
+        } else {
+          testResult.style.background = "rgba(239, 68, 68, 0.15)";
+          testResult.style.color = "#F87171";
+          testResult.textContent = `Server responded with error status ${res.status}`;
+        }
+      } catch (err) {
+        testResult.style.background = "rgba(239, 68, 68, 0.15)";
+        testResult.style.color = "#F87171";
+        testResult.textContent = `Connection failed: ${err.message}. If using Render free tier, server may be waking up (cold start). Check URL and try again.`;
+      }
+    });
+  }
+
+  if (saveBtn) {
+    saveBtn.addEventListener("click", async () => {
+      const url = input.value.trim().replace(/\/+$/, "");
+      if (url) {
+        localStorage.setItem("skillmatch_backend_url", url);
+      } else {
+        localStorage.removeItem("skillmatch_backend_url");
+      }
+      API_BASE = getApiBase();
+      modal.style.display = "none";
+      showToast("Backend URL updated!", "success");
+      await checkBackendHealth();
+      await loadAllInternships();
+      await fetchRecommendations();
+    });
+  }
+}
 
 // Initial candidate profile helper
 function getInitialProfile() {
@@ -75,15 +187,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupProfileEditor();
   setupApplyFlow();
   setupPostJobFlow();
+  setupBackendManager();
 
   // Initial candidate profile render
   updateCandidateProfile(state.profile, false);
 
-  // Check if opened via file:// protocol
-  if (window.location.protocol === "file:") {
-    console.info("SkillMatch AI: Running via file:// protocol. Routing API to " + API_BASE);
-    showToast("Connected to SkillMatch AI API at http://localhost:8000", "info");
-  }
+  // Check Backend Connection Health
+  checkBackendHealth();
 
   // Fetch Initial Data
   await loadAllInternships();
@@ -225,31 +335,62 @@ function setupDragAndDrop() {
   });
 }
 
-// Upload File API Call
+// Upload File API Call with resilient error handling & retry
 async function uploadResumeFile(file) {
+  if (!file) return;
+
+  const validExtensions = [".pdf", ".docx", ".doc", ".txt"];
+  const lowerName = file.name.toLowerCase();
+  const isValid = validExtensions.some(ext => lowerName.endsWith(ext));
+  if (!isValid) {
+    showToast("Unsupported file type. Please upload a PDF, DOCX, or TXT resume.", "error");
+    return;
+  }
+
   showToast(`Parsing ${file.name}...`, "info");
   const formData = new FormData();
   formData.append("file", file);
 
   try {
-    const res = await fetch(`${API_BASE}/api/upload-resume`, {
+    const uploadUrl = API_BASE ? `${API_BASE}/api/upload-resume` : "/api/upload-resume";
+    const res = await fetch(uploadUrl, {
       method: "POST",
       body: formData
     });
-    if (!res.ok) throw new Error("File parse failed");
-    const data = await res.json();
-    
-    updateCandidateProfile(data.profile, true);
-    state.recommendations = data.recommendations;
-    renderRecommendations();
-    showToast(`Successfully mapped ${data.profile.extracted_skills.length} skills from ${file.name}!`, "success");
-  } catch (err) {
-    if (window.location.protocol === "file:") {
-      showToast("Cannot connect to backend server. Ensure 'python run.py' is running at http://localhost:8000", "error");
-    } else {
-      showToast("Error parsing file. Ensure PDF, DOCX or TXT format.", "error");
+
+    if (!res.ok) {
+      let detailMsg = "";
+      try {
+        const errJson = await res.json();
+        if (errJson && errJson.detail) detailMsg = errJson.detail;
+      } catch (e) {}
+
+      if (res.status === 404) {
+        showToast("Backend endpoint not found (404). Please verify your Backend URL.", "error");
+        const modal = document.getElementById("backendUrlModal");
+        if (modal) modal.style.display = "flex";
+        return;
+      }
+
+      throw new Error(detailMsg || `Server error (${res.status})`);
     }
-    console.error(err);
+
+    const data = await res.json();
+    updateCandidateProfile(data.profile, true);
+    state.recommendations = data.recommendations || [];
+    renderRecommendations();
+    
+    const skillCount = (data.profile && data.profile.extracted_skills) ? data.profile.extracted_skills.length : 0;
+    showToast(`✓ Successfully mapped ${skillCount} skills from ${file.name}!`, "success");
+  } catch (err) {
+    console.error("Upload error:", err);
+    if (err.name === "TypeError" && (err.message.includes("fetch") || err.message.includes("Failed to fetch") || err.message.includes("NetworkError"))) {
+      showToast("Cannot reach backend server. If using Render free tier, server may be waking up (takes ~30s). Click 'Connect API' in header to check URL.", "error");
+      const modal = document.getElementById("backendUrlModal");
+      if (modal) modal.style.display = "flex";
+    } else {
+      showToast(`Upload error: ${err.message || "Failed to process file"}`, "error");
+    }
   }
 }
 
