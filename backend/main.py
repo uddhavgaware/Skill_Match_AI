@@ -327,16 +327,36 @@ async def upload_resume(file: UploadFile = File(...)):
 @app.post("/api/parse-text")
 async def parse_text_endpoint(req: TextParseRequest):
     """Parses raw pasted text and computes candidate profile and recommendations."""
-    if not req.text.strip():
-        raise HTTPException(status_code=400, detail="Text cannot be empty.")
+    if not req.text or not req.text.strip():
+        raise HTTPException(status_code=400, detail="Text cannot be empty. Please provide resume or coursework text.")
 
-    parsed_profile = parser.parse_text(req.text)
-    recs = recommender.recommend(
-        student_skills=parsed_profile["extracted_skills"],
-        experience_summary=parsed_profile.get("experience_summary", ""),
-        education=parsed_profile.get("education", ""),
-        top_k=12
-    )
+    try:
+        parsed_profile = parser.parse_text(req.text)
+    except Exception as e:
+        logger.error(f"Error parsing text: {e}", exc_info=True)
+        raise HTTPException(status_code=400, detail=f"Failed to parse text: {str(e)}")
+
+    if not isinstance(parsed_profile, dict):
+        parsed_profile = {"name": "Applicant", "extracted_skills": []}
+
+    skills = parsed_profile.get("extracted_skills", [])
+
+    try:
+        recs = recommender.recommend(
+            student_skills=skills,
+            experience_summary=parsed_profile.get("experience_summary", ""),
+            education=parsed_profile.get("education", ""),
+            top_k=12
+        )
+    except Exception as e:
+        logger.error(f"Error generating recommendations: {e}", exc_info=True)
+        recs = []
+
+    return {
+        "status": "success",
+        "profile": parsed_profile,
+        "recommendations": recs
+    }
 
     return {
         "status": "success",

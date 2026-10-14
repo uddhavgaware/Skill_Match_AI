@@ -394,25 +394,54 @@ async function uploadResumeFile(file) {
   }
 }
 
-// Parse Raw Text API Call
+// Parse Raw Text API Call with resilient error handling & retry
 async function parseResumeText(text) {
+  if (!text || !text.trim()) {
+    showToast("Please enter or paste resume/coursework text first.", "error");
+    return;
+  }
+
   showToast("Analyzing resume text...", "info");
   try {
-    const res = await fetch(`${API_BASE}/api/parse-text`, {
+    const parseUrl = API_BASE ? `${API_BASE}/api/parse-text` : "/api/parse-text";
+    const res = await fetch(parseUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text })
     });
-    if (!res.ok) throw new Error("Parse failed");
-    const data = await res.json();
 
+    if (!res.ok) {
+      let detailMsg = "";
+      try {
+        const errJson = await res.json();
+        if (errJson && errJson.detail) detailMsg = errJson.detail;
+      } catch (e) {}
+
+      if (res.status === 404) {
+        showToast("Backend API not found (404). Please verify your Backend URL in 'Connect API'.", "error");
+        const modal = document.getElementById("backendUrlModal");
+        if (modal) modal.style.display = "flex";
+        return;
+      }
+      throw new Error(detailMsg || `Server error (${res.status})`);
+    }
+
+    const data = await res.json();
     updateCandidateProfile(data.profile, true);
-    state.recommendations = data.recommendations;
+    state.recommendations = data.recommendations || [];
     renderRecommendations();
-    showToast(`Successfully extracted ${data.profile.extracted_skills.length} skills!`, "success");
+    
+    const count = (data.profile && data.profile.extracted_skills) ? data.profile.extracted_skills.length : 0;
+    showToast(`✓ Successfully extracted ${count} skills!`, "success");
   } catch (err) {
-    showToast("Error analyzing resume text.", "error");
-    console.error(err);
+    console.error("Text analysis error:", err);
+    if (err.name === "TypeError" && (err.message.includes("fetch") || err.message.includes("Failed to fetch") || err.message.includes("NetworkError"))) {
+      showToast("Cannot reach backend server. If using Render free tier, server may be waking up (cold start ~30s). Click 'Connect API' in header.", "error");
+      const modal = document.getElementById("backendUrlModal");
+      if (modal) modal.style.display = "flex";
+    } else {
+      showToast(`Error analyzing text: ${err.message || "Failed to process"}`, "error");
+    }
   }
 }
 
@@ -782,19 +811,40 @@ async function loadJobIntoGapStudio(job) {
   if (select && select.value !== job.id) select.value = job.id;
 
   try {
-    const res = await fetch(`${API_BASE}/api/skill-gap`, {
+    const gapUrl = API_BASE ? `${API_BASE}/api/skill-gap` : "/api/skill-gap";
+    const res = await fetch(gapUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        skills: state.profile.extracted_skills,
+        skills: state.profile.extracted_skills || [],
         internship_id: job.id
       })
     });
-    if (!res.ok) throw new Error("Gap analysis failed");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const gapData = await res.json();
     renderGapStudio(gapData);
   } catch (err) {
     console.error("Error loading gap analysis:", err);
+    // Client-side fallback gap calculation if backend is cold/unreachable
+    const studentSkillsLower = (state.profile.extracted_skills || []).map(s => s.toLowerCase());
+    const reqSkills = job.required_skills || [];
+    const prefSkills = job.preferred_skills || [];
+    const missingReq = reqSkills.filter(s => !studentSkillsLower.includes(s.toLowerCase()));
+    const missingPref = prefSkills.filter(s => !studentSkillsLower.includes(s.toLowerCase()));
+    const total = reqSkills.length + prefSkills.length || 1;
+    const matched = total - (missingReq.length + missingPref.length);
+    const fallbackData = {
+      readiness_percentage: Math.round((matched / total) * 100),
+      missing_required: missingReq,
+      missing_preferred: missingPref,
+      learning_roadmap: missingReq.map(s => ({
+        skill: s,
+        week: 1,
+        course: `Mastering ${s}`,
+        estimated_hours: 12
+      }))
+    };
+    renderGapStudio(fallbackData);
   }
 }
 
